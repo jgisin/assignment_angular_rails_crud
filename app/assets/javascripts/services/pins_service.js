@@ -20,12 +20,13 @@ pinBoard.factory('pinService', ['Restangular', function(Restangular){
       obj.index.then( function( pins ){
         pins.forEach( function( pin, index ){
           if( pin.user_id === id ) {
+            console.log('im here in delete')
+            console.log(pin)
             pin.delete();
           }
         });
       });
     };
-
 
     return obj;
 }]);
