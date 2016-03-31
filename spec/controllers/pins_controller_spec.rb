@@ -6,9 +6,10 @@ describe PinsController do
     let(:pins){[Pin.create(item_name: 'item', buy_sell: 'true', description: 'description', user_id: 1)]}
 
     it 'returns the pins as JSON' do
+      pins
       get :index, {format: 'json'}
-      pp response
-      expect(response).to match_array pins
+      binding.pry
+      expect(JSON.parse(response.body)['item_name']).to match pins[0].item_name
     end
 
   end
