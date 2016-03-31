@@ -1,6 +1,11 @@
-pinBoard.controller('PinCtrl', ['pinService', '$scope', function(pinService, $scope){
+pinBoard.controller('PinCtrl', ['pinService', '$scope',  '$stateParams',function(pinService, $scope, $stateParams){
 
-    pinService.getindex();
+   pinService.getindex();
+
+   pinService.show( $stateParams.id ).then( function(data){
+    $scope.showPin = data;
+   });
+
    $scope.pins = pinService.index;
 
    $scope.formData = {

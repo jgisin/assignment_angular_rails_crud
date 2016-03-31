@@ -6,10 +6,7 @@ pinBoard.factory('pinService', ['Restangular', function(Restangular){
         var idx = Restangular.all("pins").getList().then(function(data){
             obj.index = data;
         });
-
     };
-
-
 
     obj.show = function( id ) {
       return Restangular.one( "pins", id).get();

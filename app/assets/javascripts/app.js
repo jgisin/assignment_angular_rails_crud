@@ -15,7 +15,13 @@ pinBoard = angular.module('pinBoard', ['ui.router', 'restangular'])
                       controller: 'PinCtrl'
                   }
               )
-        }])
+              .state('show', {
+                      url: '/pins/:id',
+                      templateUrl: 'templates/show.html',
+                      controller: 'PinCtrl'
+                  }
+              )
+    }])
 
     .run(function($rootScope){
         $rootScope.$on("$stateChangeError", console.log.bind(console));
