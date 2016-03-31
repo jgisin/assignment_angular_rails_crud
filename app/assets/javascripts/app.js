@@ -10,8 +10,9 @@ pinBoard = angular.module('pinBoard', ['ui.router', 'restangular'])
             console.log('Angular Running');
           $stateProvider
               .state('index', {
-                      url: '/',
-                      templateUrl: 'templates/index.html'
+                      url: '',
+                      templateUrl: 'templates/index.html',
+                      controller: 'PinCtrl'
                   }
               )
         }])
