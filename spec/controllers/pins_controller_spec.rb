@@ -13,7 +13,5 @@ describe PinsController do
       expect(response_data.length).to eq(pins.length)
       expect(response_data[0]['item_name']).to  eq(pins[0].item_name)
     end
-
   end
-
 end
