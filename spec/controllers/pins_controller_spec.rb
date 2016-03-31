@@ -8,8 +8,10 @@ describe PinsController do
     it 'returns the pins as JSON' do
       pins
       get :index, {format: 'json'}
-      binding.pry
-      expect(JSON.parse(response.body)['item_name']).to match pins[0].item_name
+      response_data = JSON.parse(response.body)
+      pp response_data
+      expect(response_data.length).to eq(pins.length)
+      expect(response_data[0]['item_name']).to  eq(pins[0].item_name)
     end
 
   end
