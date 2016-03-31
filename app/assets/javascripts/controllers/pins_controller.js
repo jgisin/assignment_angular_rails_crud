@@ -1,14 +1,17 @@
 pinBoard.controller('PinCtrl', ['pinService', '$scope', function(pinService, $scope){
 
-   $scope.pins = pinService.index.$object;
+    pinService.getindex();
+   $scope.pins = pinService.index;
 
    $scope.formData = {
-      title: "tetris",
+      item_name: "tetris",
       buySell: "Buy",
-      description: ""
+      description: "",
+      user_id: 1
     };
 
     $scope.handleForm = function() {
+      pinService.create($scope.formData);
       console.log('handle form called');
     };
 
@@ -19,7 +22,14 @@ pinBoard.controller('PinCtrl', ['pinService', '$scope', function(pinService, $sc
       } else {
         retVal = "For Sale";
       }
+      pinService.getindex();
       return retVal;  
     }
 
+    $scope.$watch(function() {
+            return pinService.index;
+        },
+        function(newValue) {
+            $scope.pins = newValue;
+        });
 }]);

@@ -1,10 +1,15 @@
 pinBoard.factory('pinService', ['Restangular', function(Restangular){
 
     var obj = {};
-    var couldBeAPinsArray = [];
+    obj.index = [];
+    obj.getindex = function(){
+        var idx = Restangular.all("pins").getList().then(function(data){
+            obj.index = data;
+        });
+
+    };
 
 
-    obj.index = Restangular.all("pins").getList();
 
     obj.show = function( id ) {
       return Restangular.one( "pins", id).get();
@@ -12,7 +17,7 @@ pinBoard.factory('pinService', ['Restangular', function(Restangular){
 
     obj.create = function ( pinObj ) {
       return Restangular.all( "pins").post( pinObj );
-    }
+    };
 
     obj.destroy = function ( id ) {
       obj.index.then( function( pins ){
@@ -22,7 +27,7 @@ pinBoard.factory('pinService', ['Restangular', function(Restangular){
           }
         });
       });
-    }
+    };
 
 
     return obj;

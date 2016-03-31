@@ -1,6 +1,7 @@
 
 </br>
-<h4>{{ pin['item_name'] }}<h4></br>
-<h4>{{ flip({pin:pin}) }}<h4></br>
-<h4>{{ pin['description'] }}<h4></br>
-<h4>{{ pin['created_at'] }}    {{ pin['user_id'] }}<h4></br>
+<h2>{{ pin['item_name'] }}</h2>
+<h4 ng-class="{green: pin.buy_sell, red: !pin.buy_sell}" >{{ flip({pin:pin}) }}</h4>
+<p>{{ pin['description'] }}</p>
+<p>{{ pin['created_at'] }}    {{ pin['user_id'] }}</p>
+<hr/>
