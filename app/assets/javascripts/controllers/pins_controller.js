@@ -12,6 +12,7 @@ pinBoard.controller('PinCtrl', ['pinService', '$scope', function(pinService, $sc
 
     $scope.handleForm = function() {
       pinService.create($scope.formData);
+      pinService.getindex();
       console.log('handle form called');
     };
 
@@ -22,7 +23,6 @@ pinBoard.controller('PinCtrl', ['pinService', '$scope', function(pinService, $sc
       } else {
         retVal = "For Sale";
       }
-      pinService.getindex();
       return retVal;  
     }
 
