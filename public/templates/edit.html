@@ -1,0 +1,24 @@
+<form name="tradeSubmitForm">
+
+    <div class="form-group">
+        <label for="pin-title">Title</label>
+        <input type="text" name="item_name" ng-model="showPin.item_name"></br>
+    </div>
+
+    <div class="form-group">
+        <label for="pin-buy-sell">Buy or Sell</label>
+        <select ng-model="showPin.buy_sell_string">
+            <option value="1">Buy</option>
+            <option value="0">Sell</option>
+        </select></br>
+    </div>
+
+    <div class="form-group">
+        <label for="pin-description">Description</label>
+        <input type="textarea" name="description" ng-model="showPin.description"></br>
+    </div>
+
+    <div class="form-group">
+        <button ui-sref="index" type="button" ng-click="updateForm()">Create Pin</button>
+    </div>
+</form>

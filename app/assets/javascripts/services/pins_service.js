@@ -12,20 +12,16 @@ pinBoard.factory('pinService', ['Restangular', function(Restangular){
       return Restangular.one( "pins", id).get();
     };
 
+    obj.update = function( pinObj ){
+      pinObj.put();
+    };
+
     obj.create = function ( pinObj ) {
       return Restangular.all( "pins").post( pinObj );
     };
 
     obj.destroy = function ( id ) {
-      obj.index.then( function( pins ){
-        pins.forEach( function( pin, index ){
-          if( pin.user_id === id ) {
-            console.log('im here in delete')
-            console.log(pin)
-            pin.delete();
-          }
-        });
-      });
+        Restangular.one("pins", id).remove();
     };
 
     return obj;

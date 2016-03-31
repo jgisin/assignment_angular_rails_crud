@@ -6,7 +6,8 @@ pinBoard.directive('showPin', [ function() {
     restrict: 'A',
     scope: {
       pin: '=',
-      flip: '&'
+      flip: '&',
+      delete: '&'
     },
     templateUrl: 'templates/directives/show_pin.html',
   };

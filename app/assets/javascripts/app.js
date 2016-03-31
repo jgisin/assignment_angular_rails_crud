@@ -21,6 +21,12 @@ pinBoard = angular.module('pinBoard', ['ui.router', 'restangular'])
                       controller: 'PinCtrl'
                   }
               )
+              .state('edit', {
+                      url: '/pins/:id/edit',
+                      templateUrl: 'templates/edit.html',
+                      controller: 'PinCtrl'
+                  }
+              )
     }])
 
     .run(function($rootScope){

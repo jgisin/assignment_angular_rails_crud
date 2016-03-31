@@ -7,7 +7,7 @@ pinBoard.controller('PinCtrl', ['pinService', '$scope',  '$stateParams',function
    });
 
    $scope.deletePin = function(id ) {
-      pinService.destroy( id )
+      pinService.destroy( id );
       pinService.getindex();
    }
 
@@ -22,7 +22,7 @@ pinBoard.controller('PinCtrl', ['pinService', '$scope',  '$stateParams',function
 
     $scope.handleForm = function() {
       console.log($scope.formData);
-      console.log(typeof $scope.formData.buy_sell_string)
+      console.log(typeof $scope.formData.buy_sell_string);
       if (+$scope.formData.buy_sell_string) {
         $scope.formData.buy_sell = true;
       } else {
@@ -33,6 +33,21 @@ pinBoard.controller('PinCtrl', ['pinService', '$scope',  '$stateParams',function
       pinService.getindex();
       console.log('handle form called');
     };
+
+    $scope.updateForm = function() {
+        console.log($scope.formData);
+        console.log(typeof $scope.formData.buy_sell_string);
+        if (+$scope.showPin.buy_sell_string) {
+            $scope.showPin.buy_sell = true;
+        } else {
+            $scope.showPin.buy_sell = false;
+        }
+
+        pinService.update($scope.showPin);
+        pinService.getindex();
+        console.log('handle form called');
+    };
+
 
     $scope.buyOrSell = function(pin){
       var retVal;
